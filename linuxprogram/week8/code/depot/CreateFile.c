@@ -2,30 +2,16 @@
 
 void CreateFile_1() //1.创建新文件
 {
-      int fp;
-
-      if( ( fp = open( "/home/mouslet/Fang/linuxprogram/week8/code/main/test.txt",O_CREAT|O_TRUNC|O_RDWR,0666) )< 0)
-{
-
-      perror( "open" );
-}
-		else{
-
-      printf( "Create file:test.txt\n" );
-}
-
-      getchar();
-
-      if( close( fp )< 0 ){
-
-      perror( "close" );
-		}
-
-      else{
-
-      printf( "Close file:test.txt\n" );
-
-      }
+    FILE *fpIn;//文件打开指针
+    char pp[100];//文件名字s
+    //unsigned char buf[128];
+    printf("输入你想创建的文件名字：");
+    scanf("%s",pp);
+    if((fpIn=fopen(pp,"ab+"))==NULL)
+    {
+        printf("文件不存在，即将创建一个文件: %s\n",pp);
+    }
+    printf("创建成功，返回主菜单，继续你的选择。\n");
 
 }
 

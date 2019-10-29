@@ -6,8 +6,8 @@ int n;
       while(1)
 {
 
-		printf( "0. 退出\n1.创建新文件\n2.写文件\n3.读文件\n" );
-		printf( "4. 修改文件权限\n5.查看文件权限\n" ); 
+		printf( "0.退出\n1.创建新文件\n2.写文件\n3.读文件\n" );
+		printf( "4.修改文件权限\n5.查看当前文件的权限修改文件权限\n" ); 
 		printf( "Please Input your Choice(0-5):" );
 		scanf( "%d", &n);
 		switch (n)

@@ -3,46 +3,21 @@
 void WriteInFile_1()
 {
 
-      int fp;
+     FILE *fpIn;//文件打开指针
+    char pp[100];//文件名字
+    unsigned char buf[1024]="";
+    printf("输入你想写的文件名字：");
+    scanf("%s",pp);
+    if((fpIn=fopen(pp,"ab+"))==NULL)
+    {
+        printf("创建: %s失败\n",pp);
+    }
+    printf("打开文件成功，请输入你想写入的数据:\n");
+    scanf("%s",buf);
+    fwrite(buf,sizeof(char),1024,fpIn);
+    fclose(fpIn);  
+    printf("写入完成\n");
 
-      char buf[1024];
-
-      if( ( fp = open( "/home/mouslet/Fang/linuxprogram/week8/code/main/test.txt", O_CREAT|O_APPEND|O_RDWR,0666))< 0)
-{
-      perror( "open" );
-}
-
-      else 
-{
-
-      printf( "Open file:test.txt\n");
-}
-
-      printf( "Please input your data( < 1024 bytes ) :\n" );
-		scanf( "%s", buf );
-
-      if( write( fp, buf, strlen( buf ) ) < 0 )
-{
-
-      perror( "write" );
-}
-
-      else
-{
-
-      printf( "Written Success!\n" );
-}
-
-      getchar();
-
-      if( close( fp) < 0 )
-{
-		perror("close");
-}
-		else
-{
-	printf("Close file:test.txt\n");
-}
 }
 
 
